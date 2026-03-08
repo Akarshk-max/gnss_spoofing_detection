@@ -34,3 +34,12 @@ correlator_diff = EC - LC
 correlator_ratio = EC / (LC + 1e-6)
 prompt_balance = PC / (EC + LC + 1e-6)
 PC_magnitude = √(PIP² + PQP²)
+The strongest discriminator. Under authentic conditions, pseudorange rate must equal Doppler-derived velocity (λ = 0.1903 m for GPS L1 C/A).
+residual_PD = (ΔPseudorange / Δt) + λ × Carrier_Doppler
+doppler_delta, phase_jump, cn0_zscore (per PRN)
+clock_error = RX_time - TOW
+mean/std statistics per PRN (CN0, Doppler, Pseudorange)
+```
+All features are computed per PRN, sorted by RX_time to prevent leakage. NaNs (first sample per satellite) are filled with 0 (tree-friendly).
+
+
